@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using MessageTest.Domain.Entities;
-using MessageTest.Domain.Interfaces;
 
+using MessageTest.Domain.Interfaces.Repositories;
 
 namespace MessageTest.Infra.Data.Repositories
 {
@@ -12,5 +12,6 @@ namespace MessageTest.Infra.Data.Repositories
         {
             return Db.Messages.Where(x => x.Texto.Contains(name));
         }
+        
     }
 }

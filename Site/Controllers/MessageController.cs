@@ -1,4 +1,8 @@
-﻿using System;
+﻿using AutoMapper;
+using MessageTest.Application.Interfaces;
+using MessageTest.Domain.Entities;
+using Site.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,16 +12,26 @@ namespace Site.Controllers
 {
     public class MessageController : Controller
     {
+        private readonly IMessageAppService _messageApp;
+
+        public MessageController(IMessageAppService messageApp)
+        {
+            _messageApp = messageApp;
+        }
+
         // GET: Message
         public ActionResult Index()
         {
-            return View();
+            var messageViewModel = Mapper.Map<IEnumerable<Message>, IEnumerable<MessageViewModel>>(_messageApp.GetAll());
+            return View(messageViewModel);
         }
 
         // GET: Message/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var message = _messageApp.GetById(id);
+            var messageViewModel = Mapper.Map<Message, MessageViewModel>(message);
+            return View(messageViewModel);
         }
 
         // GET: Message/Create
@@ -28,62 +42,60 @@ namespace Site.Controllers
 
         // POST: Message/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(MessageViewModel message)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
+                var messageMap = Mapper.Map<MessageViewModel, Message>(message);
+                _messageApp.Add(messageMap);
 
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(message);
         }
 
         // GET: Message/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var message = _messageApp.GetById(id);
+            var messageViewModel = Mapper.Map<Message, MessageViewModel>(message);
+            return View(messageViewModel);
         }
 
         // POST: Message/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(MessageViewModel message)
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                var messageMap = Mapper.Map<MessageViewModel, Message>(message);
+                _messageApp.Update(messageMap);
 
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+
+            return View(message);
         }
 
         // GET: Message/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var message = _messageApp.GetById(id);
+            var messageViewModel = Mapper.Map<Message, MessageViewModel>(message);
+            return View(messageViewModel);
         }
 
         // POST: Message/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            var message = _messageApp.GetById(id);
+            _messageApp.Remove(message);
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
     }
 }

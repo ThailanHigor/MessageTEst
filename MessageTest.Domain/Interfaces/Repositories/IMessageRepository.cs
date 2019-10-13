@@ -1,7 +1,7 @@
 ﻿using MessageTest.Domain.Entities;
 using System.Collections.Generic;
 
-namespace MessageTest.Domain.Interfaces
+namespace MessageTest.Domain.Interfaces.Repositories
 {
     public interface IMessageRepository : IRepositoryBase<Message>
     {

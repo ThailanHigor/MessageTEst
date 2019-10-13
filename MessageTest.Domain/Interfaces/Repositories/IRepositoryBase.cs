@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MessageTest.Domain.Interfaces
+namespace MessageTest.Domain.Interfaces.Repositories
 {
     public interface IRepositoryBase<TEntity> where TEntity : class
     {

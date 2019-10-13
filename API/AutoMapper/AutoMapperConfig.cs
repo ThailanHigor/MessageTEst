@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace Site.AutoMapper
+namespace API.AutoMapper
 {
     public class AutoMapperConfig
     {

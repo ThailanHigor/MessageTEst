@@ -1,9 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Web;
 
-namespace MessageTest.Domain.Entities
+namespace API.ViewModels
 {
-    public class Message
+    public class MessageViewModel
     {
+        [Key]
         public int MessageId { get; set; }
 
         public string Texto { get; set; }
@@ -16,5 +21,4 @@ namespace MessageTest.Domain.Entities
 
         public bool Lido { get; set; }
     }
-
 }

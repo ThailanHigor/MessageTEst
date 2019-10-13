@@ -12,12 +12,16 @@ namespace Site.ViewModels
         public int MessageId { get; set; }
 
         [Required(ErrorMessage = "Escreva uma mensagem")]
-        [MaxLength(200, ErrorMessage = "Máximo {0} caracteres")]
-        [MinLength(10, ErrorMessage = "Máximo {0} caracteres")]
+        [MinLength(10, ErrorMessage = "Mínimo 10 caracteres")]
+        [MaxLength(200, ErrorMessage = "Máximo 200 caracteres")]
         public string Texto { get; set; }
 
         [ScaffoldColumn(false)]
         public DateTime DataCadastro { get; set; }
+
+        [Required(ErrorMessage = "Informe a data de exibição")]
+        [Display(Name = "Data exibição da Mensagem")]
+        public DateTime DataExibicao { get; set; }
 
         public bool Ativo { get; set; }
 

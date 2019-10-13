@@ -1,4 +1,5 @@
 ﻿using MessageTest.Domain.Interfaces;
+using MessageTest.Domain.Interfaces.Repositories;
 using MessageTest.Infra.Data.Context;
 using System;
 using System.Collections.Generic;
