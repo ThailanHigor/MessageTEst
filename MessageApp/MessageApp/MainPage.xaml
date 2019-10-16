@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MessageApp"
+             x:Class="MessageApp.MainPage">
+
+    <StackLayout VerticalOptions="CenterAndExpand">
+        <!-- Place new controls here -->
+        <Label  x:Name="lblMsg"
+           Text="Clique no botão para receber sua mensagem do dia" 
+           HorizontalOptions="CenterAndExpand"
+           VerticalOptions="CenterAndExpand"
+           HorizontalTextAlignment="Center"
+           VerticalTextAlignment="Center"
+        />
+
+        <Label  x:Name="lblData"
+           Text="" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+
+
+        <ActivityIndicator x:Name="loaderMsg"
+                          IsRunning="True"
+                          IsVisible="False"
+                          Color="DarkBlue"
+                          HeightRequest="40"
+                          VerticalOptions="CenterAndExpand"
+                          HorizontalOptions="CenterAndExpand">
+        </ActivityIndicator>
+
+        <Label x:Name="lblCarregandoMensagem"
+                   IsVisible="False"
+                   Text="Carregando mensagem..." 
+                   HorizontalOptions="Center"
+                   VerticalOptions="CenterAndExpand" />
+
+
+
+        <Button IsVisible="True"
+                x:Name="btnMsg"
+                HeightRequest="32"
+                BorderWidth="1"
+                BorderColor="DarkBlue"
+                Text="Mensagem do dia"
+                VerticalOptions="Start"
+                HorizontalOptions="Center"
+                BackgroundColor="White"
+                TextColor="DarkBlue"
+                FontSize="Micro"
+                Clicked="getMEssage" />
+
+        <Button IsVisible="False"
+                x:Name="btnBack"
+                HeightRequest="32"
+                Text="Voltar"
+                VerticalOptions="Start"
+                HorizontalOptions="Center"
+                BackgroundColor="DarkBlue"
+                TextColor="White"
+                FontSize="Micro"
+                Clicked="BackMessage" />
+    </StackLayout>
+
+</ContentPage>

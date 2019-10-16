@@ -24,6 +24,16 @@ namespace API.Controllers
 
         }
 
+        // GET: api/Message/MessageDay
+        [HttpGet]
+        [Route("api/Message/MessageDay")]
+        public IHttpActionResult MessageDay()
+        {
+            var messageViewModel = _messageApp.FindTodayMessage();
+            return Ok(messageViewModel);
+
+        }
+
         // GET: api/Message/5
         public IHttpActionResult Get(int id)
         {

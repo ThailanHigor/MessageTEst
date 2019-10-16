@@ -24,5 +24,9 @@ namespace MessageTest.Application
             return _messageService.FindTextByWord(name);
         }
 
+        public Message FindTodayMessage()
+        {
+            return _messageService.FindTodayMessage();
+        }
     }
 }

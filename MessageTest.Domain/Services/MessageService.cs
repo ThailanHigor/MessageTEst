@@ -19,5 +19,10 @@ namespace MessageTest.Domain.Services
         {
             return _messageRepository.FindByName(name);
         }
+
+        public Message FindTodayMessage()
+        {
+            return _messageRepository.FindTodayMessage();
+        }
     }
 }

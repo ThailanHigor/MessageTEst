@@ -40,6 +40,5 @@
     <Compile Include="Services\MessageService.cs" />
     <Compile Include="Services\ServiceBase.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

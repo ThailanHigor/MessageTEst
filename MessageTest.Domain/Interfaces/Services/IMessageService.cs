@@ -6,5 +6,7 @@ namespace MessageTest.Domain.Interfaces.Services
     public interface IMessageService : IServiceBase<Message>
     {
         IEnumerable<Message> FindTextByWord(string name);
+
+        Message FindTodayMessage();
     }
 }

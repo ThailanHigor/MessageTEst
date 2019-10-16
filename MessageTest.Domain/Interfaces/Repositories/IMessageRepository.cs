@@ -6,5 +6,7 @@ namespace MessageTest.Domain.Interfaces.Repositories
     public interface IMessageRepository : IRepositoryBase<Message>
     {
         IEnumerable<Message> FindByName(string name);
+
+        Message FindTodayMessage();
     }
 }

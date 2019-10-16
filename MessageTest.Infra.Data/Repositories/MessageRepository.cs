@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using MessageTest.Domain.Entities;
 
@@ -12,6 +13,15 @@ namespace MessageTest.Infra.Data.Repositories
         {
             return Db.Messages.Where(x => x.Texto.Contains(name));
         }
-        
+
+        public Message FindTodayMessage()
+        {
+            var msgDay = Db.Messages.Where(x => x.DataExibicao.Day == DateTime.Now.Day
+                                           && x.DataExibicao.Month == DateTime.Now.Month
+                                           && x.DataExibicao.Year == DateTime.Now.Year
+                                           && x.Ativo).FirstOrDefault();
+            return msgDay;
+        }
+
     }
 }
