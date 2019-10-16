@@ -12,8 +12,8 @@ http://34.69.226.201
 API:
 http://34.69.226.201/api/api/message/
 
-API - Mensagens
-Todas as Mensagens url: http://34.69.226.201/api/api/message/
+API - Mensagens </br>
+Todas as Mensagens url: http://34.69.226.201/api/api/message/ </br>
 Mensagem do Dia url: http://34.69.226.201/api/api/message/MessageDay
 
 
